@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concert Details - ConcertGo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ConcertGo</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">Cart</a></li> <!-- Cart link updated -->
+            </ul>
+        </nav>
+        <button id="theme-toggle-button">Switch to Dark Theme</button>
+    </header>
+
+    <main id="concert-detail-main">
+        <section id="concert-detail-content" class="concert-detail-container">
+            <!-- Breadcrumbs/Back Link (Optional, but good UX) -->
+            <p class="breadcrumbs"><a href="index.html">&larr; Back to Concerts</a></p>
+            
+            <h1 id="detail-concert-name">Concert Title Placeholder</h1>
+            
+            <div class="detail-layout">
+                <div class="detail-image-container">
+                    <img id="detail-concert-image" src="https://placekitten.com/400/300?image=7" alt="Concert Image Placeholder">
+                </div>
+                <div class="detail-info">
+                    <p><strong>Category:</strong> <span id="detail-concert-category">Category Placeholder</span></p>
+                    <p><strong>Date & Time:</strong> <span id="detail-concert-datetime">Date & Time Placeholder</span></p>
+                    <p><strong>Venue:</strong> <span id="detail-concert-venue">Venue Placeholder</span></p>
+                    <p><strong>Price:</strong> <span id="detail-concert-price" class="price">Price Placeholder</span></p>
+                    
+                    <h2>About the Event</h2>
+                    <p id="detail-concert-description">Full description of the concert will go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    
+                    <button id="add-to-cart-button" class="btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ConcertGo. All rights reserved.</p>
+    </footer>
+
+    <script src="concert_data.js"></script> <!-- To access concert details -->
+    <script src="script.js" defer></script> <!-- For theme switcher and future detail page logic -->
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* Basic Reset */
+/* Basic Reset - Keep as is */
 * {
     margin: 0;
     padding: 0;
@@ -6,77 +6,580 @@
 }
 
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
     line-height: 1.6;
-
-    /* Light Theme (Default) */
-    background-color: #f4f4f4;
+    background-color: #f0f7f8; /* Light theme background - A very light teal/blue */
     color: #333;
 }
 
-header {
-    background-color: #ddd;
-    color: #333;
-    padding: 1rem 0;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-header h1 {
-    margin-bottom: 0.5rem;
-}
-
+/* Theme Switcher Button - Keep existing, adjust if necessary for new header */
 #theme-toggle-button {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
     cursor: pointer;
-    border: 1px solid #333;
-    background-color: #ccc;
-    color: #333;
+    border: 1px solid #00796b; /* Primary color border */
+    background-color: #e0f2f1; /* Lighter shade of primary */
+    color: #00796b; /* Primary color */
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: auto; /* Pushes button to the right in flex container */
 }
 
 #theme-toggle-button:hover {
-    background-color: #bbb;
+    background-color: #b2dfdb;
 }
 
-main {
-    padding: 1rem;
-    max-width: 800px;
+/* Header and Navigation */
+header {
+    background-color: #00796b; /* Primary color - Deep Teal */
+    color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #c2f0eb; /* Lighter accent for hover */
+}
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(rgba(0, 121, 107, 0.8), rgba(0, 121, 107, 0.6)), url('https://placekitten.com/1200/400') no-repeat center center/cover; /* Placeholder background */
+    color: #ffffff;
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+#hero p {
+    font-size: 1.2rem;
+}
+
+/* Filters Section */
+#filters {
+    padding: 2rem;
+    background-color: #e0f2f1; /* Light primary shade */
+    margin: 2rem auto;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+#filters h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #004d40; /* Darker primary shade */
+}
+
+.filter-group {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-weight: 500;
+    color: #00796b;
+}
+
+.filter-group select, .filter-group input {
+    padding: 0.5rem;
+    border: 1px solid #b2dfdb;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Concert Listings */
+#concert-listings {
+    padding: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.content {
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+#concert-listings h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #00796b; /* Primary color */
+    font-size: 2rem;
 }
 
-/* Dark Theme */
+.concert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.concert-card { /* Styles for individual cards - to be added when JS populates them */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.concert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.concert-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.concert-card-content {
+    padding: 1rem;
+}
+
+.concert-card-content h3 {
+    font-size: 1.3rem;
+    color: #004d40;
+    margin-bottom: 0.5rem;
+}
+
+.concert-card-content p {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    color: #555;
+}
+
+.concert-card-content .price {
+    font-weight: bold;
+    color: #00796b;
+    margin-top: 0.5rem;
+}
+
+.concert-card-content .btn-details {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #ff8f00; /* Accent color - Amber/Orange */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.concert-card-content .btn-details:hover {
+    background-color: #e68100;
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #004d40; /* Darker primary shade */
+    color: #e0f2f1;
+    margin-top: 2rem;
+}
+
+/* Dark Theme Adjustments */
 body.dark-theme {
-    background-color: #333;
-    color: #f4f4f4;
+    background-color: #121212; /* Very dark grey */
+    color: #e0e0e0;
 }
 
 body.dark-theme header {
-    background-color: #222;
-    color: #f4f4f4;
+    background-color: #1f1f1f; /* Slightly lighter dark for header */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
+body.dark-theme header .logo, body.dark-theme header nav ul li a {
+    color: #e0e0e0;
+}
+body.dark-theme header nav ul li a:hover {
+    color: #00796b; /* Primary color for hover in dark mode */
+}
+
+
 body.dark-theme #theme-toggle-button {
-    background-color: #555;
-    color: #f4f4f4;
-    border-color: #f4f4f4;
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #555;
 }
 
 body.dark-theme #theme-toggle-button:hover {
-    background-color: #777;
+    background-color: #444;
 }
 
-body.dark-theme .content {
-    background-color: #444;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+body.dark-theme #hero {
+    background: linear-gradient(rgba(31, 31, 31, 0.8), rgba(31, 31, 31, 0.6)), url('https://placekitten.com/1200/400?grayscale') no-repeat center center/cover; /* Darker, desaturated placeholder */
+}
+
+body.dark-theme #hero h1, body.dark-theme #hero p {
+    color: #ffffff;
+}
+
+body.dark-theme #filters {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+body.dark-theme #filters h2, body.dark-theme .filter-group label {
+    color: #b2dfdb; /* Light primary shade for text */
+}
+
+body.dark-theme .filter-group select, body.dark-theme .filter-group input {
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+body.dark-theme #concert-listings h2 {
+    color: #80cbc4; /* Lighter primary color for dark mode */
+}
+
+body.dark-theme .concert-card {
+    background-color: #2a2a2a;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+body.dark-theme .concert-card-content h3 {
+    color: #80cbc4; /* Lighter primary for headings */
+}
+
+body.dark-theme .concert-card-content p {
+    color: #c0c0c0; /* Lighter grey for text */
+}
+
+body.dark-theme .concert-card-content .price {
+    color: #80cbc4;
+}
+
+body.dark-theme .concert-card-content .btn-details {
+    background-color: #ffa000; /* Slightly brighter accent for dark mode */
+}
+body.dark-theme .concert-card-content .btn-details:hover {
+    background-color: #ffb300;
+}
+
+
+body.dark-theme footer {
+    background-color: #1a1a1a;
+    color: #b2dfdb;
+}
+
+/* Add these styles to style.css */
+
+/* Concert Detail Page Specific Styles */
+#concert-detail-main {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.concert-detail-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.concert-detail-container .breadcrumbs {
+    margin-bottom: 1rem;
+}
+.concert-detail-container .breadcrumbs a {
+    text-decoration: none;
+    color: #00796b; /* Primary color */
+}
+.concert-detail-container .breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.concert-detail-container h1 { /* #detail-concert-name */
+    font-size: 2.5rem;
+    color: #004d40; /* Darker primary shade */
+    margin-bottom: 1rem;
+}
+
+.detail-layout {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.detail-image-container {
+    flex: 1 1 300px; /* Flex properties for responsiveness */
+}
+
+.detail-image-container img { /* #detail-concert-image */
+    width: 100%;
+    max-width: 400px; /* Max width for the image */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.detail-info {
+    flex: 2 1 400px; /* Takes more space */
+}
+
+.detail-info p {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+.detail-info p strong {
+    color: #00796b; /* Primary color for labels */
+}
+.detail-info .price { /* #detail-concert-price */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00796b; /* Primary color */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.detail-info h2 { /* "About the Event" */
+    font-size: 1.5rem;
+    color: #004d40;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #e0f2f1; /* Light primary shade for underline */
+    padding-bottom: 0.3rem;
+}
+
+#add-to-cart-button.btn-primary { /* Re-using btn-details style but can be customized */
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #ff8f00; /* Accent color */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#add-to-cart-button.btn-primary:hover {
+    background-color: #e68100;
+}
+
+
+/* Dark Theme adjustments for concert_detail.html */
+body.dark-theme .concert-detail-container {
+    background-color: #2a2a2a; /* Similar to concert cards in dark mode */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+body.dark-theme .concert-detail-container .breadcrumbs a {
+    color: #80cbc4; /* Lighter primary for links */
+}
+
+body.dark-theme .concert-detail-container h1 { /* #detail-concert-name */
+    color: #80cbc4; /* Lighter primary for heading */
+}
+
+body.dark-theme .detail-info p strong {
+    color: #80cbc4; /* Lighter primary for labels */
+}
+
+body.dark-theme .detail-info .price { /* #detail-concert-price */
+    color: #80cbc4;
+}
+
+body.dark-theme .detail-info h2 { /* "About the Event" */
+    color: #80cbc4;
+    border-bottom-color: #333; /* Darker underline for dark mode */
+}
+
+body.dark-theme #add-to-cart-button.btn-primary {
+    background-color: #ffa000; /* Slightly brighter accent for dark mode */
+}
+body.dark-theme #add-to-cart-button.btn-primary:hover {
+    background-color: #ffb300;
+}
+
+/* Add these styles to style.css */
+
+/* Cart Page Specific Styles */
+#cart-main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cart-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cart-container h1 {
+    font-size: 2rem;
+    color: #004d40; /* Darker primary shade */
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#cart-items-container .cart-item { /* Style for individual items, to be added by JS */
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0f2f1; /* Light primary shade for separator */
+}
+#cart-items-container .cart-item:last-child {
+    border-bottom: none;
+}
+
+#cart-items-container .cart-item img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+#cart-items-container .cart-item-info {
+    flex-grow: 1;
+}
+#cart-items-container .cart-item-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: #00796b;
+}
+#cart-items-container .cart-item-info p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+#cart-items-container .cart-item-actions .remove-item-btn {
+    background: none;
+    border: 1px solid #cc0000;
+    color: #cc0000;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+ #cart-items-container .cart-item-actions .remove-item-btn:hover {
+     background-color: #cc0000;
+     color: white;
+ }
+
+
+#empty-cart-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+    padding: 2rem 0;
+}
+
+#cart-summary-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #00796b; /* Primary color border */
+}
+#cart-summary-section h2 {
+    font-size: 1.5rem;
+    color: #004d40;
+    margin-bottom: 1rem;
+}
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+.total-row .price { /* #total-price */
+    font-weight: bold;
+    color: #00796b;
+}
+#checkout-button.btn-primary { /* Re-using btn-primary style */
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 1.5rem auto 0;
+    padding: 0.8rem 1.5rem;
+    background-color: #ff8f00; /* Accent color */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    font-size: 1.1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#checkout-button.btn-primary:hover {
+    background-color: #e68100;
+}
+
+/* Dark Theme adjustments for cart.html */
+body.dark-theme .cart-container {
+    background-color: #2a2a2a;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+body.dark-theme .cart-container h1 {
+    color: #80cbc4;
+}
+body.dark-theme #cart-items-container .cart-item {
+    border-bottom-color: #333;
+}
+body.dark-theme #cart-items-container .cart-item-info h3 {
+    color: #80cbc4;
+}
+body.dark-theme #cart-items-container .cart-item-info p {
+    color: #c0c0c0;
+}
+body.dark-theme #cart-items-container .cart-item-actions .remove-item-btn {
+    border-color: #ff7777;
+    color: #ff7777;
+}
+ body.dark-theme #cart-items-container .cart-item-actions .remove-item-btn:hover {
+     background-color: #ff7777;
+     color: #121212;
+ }
+
+body.dark-theme #empty-cart-message {
+    color: #888;
+}
+body.dark-theme #cart-summary-section {
+    border-top-color: #80cbc4;
+}
+body.dark-theme #cart-summary-section h2 {
+    color: #80cbc4;
+}
+body.dark-theme .total-row .price { /* #total-price */
+    color: #80cbc4;
+}
+body.dark-theme #checkout-button.btn-primary {
+    background-color: #ffa000;
+}
+ body.dark-theme #checkout-button.btn-primary:hover {
+    background-color: #ffb300;
 }

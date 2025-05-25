@@ -3,20 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theme Switcher</title>
+    <title>Concert Ticket Booking</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Theme Switcher Demo</h1>
+        <nav>
+            <div class="logo">ConcertGo</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">Cart</a></li> <!-- Cart link updated -->
+            </ul>
+        </nav>
         <button id="theme-toggle-button">Switch to Dark Theme</button>
     </header>
+
     <main>
-        <div class="content">
-            <p>This is some sample content to demonstrate the theme switching.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
+        <section id="hero">
+            <h1>Find Your Next Concert</h1>
+            <p>Experience the best live music events in Sri Lanka.</p>
+        </section>
+
+        <section id="filters">
+            <h2>Filter Concerts</h2>
+            <div class="filter-group">
+                <label for="category-filter">Category:</label>
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="DJ Music">DJ Music</option>
+                    <option value="Paduru Party">Paduru Party</option>
+                    <option value="Violin Show">Violin Show</option>
+                    <!-- Add more categories as needed -->
+                </select>
+            </div>
+            <!-- Add more filter groups here if needed (e.g., date, location) -->
+        </section>
+
+        <section id="concert-listings">
+            <h2>Upcoming Concerts</h2>
+            <div class="concert-grid" id="concert-grid">
+                <!-- Concert cards will be dynamically inserted here by JavaScript -->
+                <p>Loading concerts...</p>
+            </div>
+        </section>
     </main>
-    <script src="script.js" defer></script>
+
+    <footer>
+        <p>&copy; 2024 ConcertGo. All rights reserved.</p>
+    </footer>
+
+    <script src="concert_data.js"></script> <!-- Concert data -->
+    <script src="script.js" defer></script> <!-- Main logic, including theme switcher -->
 </body>
 </html>

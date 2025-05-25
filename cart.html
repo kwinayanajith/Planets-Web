@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ConcertGo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ConcertGo</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">Cart</a></li> <!-- Cart link updated -->
+            </ul>
+        </nav>
+        <button id="theme-toggle-button">Switch to Dark Theme</button>
+    </header>
+
+    <main id="cart-main">
+        <section id="cart-content" class="cart-container">
+            <h1>Your Shopping Cart</h1>
+            
+            <div id="cart-items-container">
+                <!-- Cart items will be dynamically inserted here by JavaScript -->
+                <p id="empty-cart-message">Your cart is currently empty.</p>
+            </div>
+            
+            <div id="cart-summary-section">
+                <h2>Cart Summary</h2>
+                <div class="total-row">
+                    <p>Total Items: <span id="total-items">0</span></p>
+                    <p>Total Price: <span id="total-price" class="price">LKR 0.00</span></p>
+                </div>
+                <button id="checkout-button" class="btn-primary">Proceed to Checkout</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ConcertGo. All rights reserved.</p>
+    </footer>
+
+    <!-- concert_data.js might not be strictly needed for cart display logic, 
+         but script.js might have general dependencies or it could be useful later.
+         Including it for consistency with other pages for now. -->
+    <script src="concert_data.js"></script> 
+    <script src="script.js" defer></script> <!-- For theme switcher and cart page logic -->
+</body>
+</html>
